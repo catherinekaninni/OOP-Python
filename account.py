@@ -72,10 +72,20 @@ class Account:
             print(f"You have borrowed a loan of{amount} and your interest is {interest}. Your total payment will be {self.loan_balance}")
         
     def loan_repayment(self,amount):
-        
+            self.loan_balance+=self.loan_balance
             self.loan_balance-=amount
             print(f'you have paid {amount} and your loan balance is {self.loan_balance}')
-        
+            overpaid=amount-self.loan_balance
+            if amount>self.loan:
+                self.deposits+=overpaid
+    
+    def transfer(self,amount,account):
+        self.amount=amount
+        self.account=account
+        if self.amount<self.balance:
+            self.balance-=self.amount
+        print(f"You have successfully sent {self.amount} to {self.account} your current balance is {self.balance}")
+                
             
 
         
